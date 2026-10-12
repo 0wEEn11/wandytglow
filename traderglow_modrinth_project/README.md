@@ -1,7 +1,7 @@
-# Trader Glow Mod (Fabric, Minecraft 1.21.1, client-side)
+# Trader Glow Mod (Fabric, Minecraft 26.2, client-side)
 
 ## Build
-With JDK 21 and Gradle 8.10+ installed:
+With JDK 25 and Gradle 9.6+ installed:
 
     gradle build
 
@@ -10,5 +10,5 @@ No local setup? Push this folder to GitHub; the included Action builds the jar (
 
 ## Upload to Modrinth
 Create project > Mod > upload the jar as a version:
-Loader: Fabric | Game version: 1.21.1 | Environments: Client required, Server unsupported | Dependency: Fabric API (required).
+Loader: Fabric | Game version: 26.2 | Environments: Client required, Server unsupported | Dependency: Fabric API (required).
 To use it in the Modrinth App directly: open an instance > Add content > Add from file > pick the jar.
