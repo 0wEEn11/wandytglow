@@ -3,6 +3,9 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: traderglow_modrinth_project
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -13,4 +16,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: traderglow-jar
-          path: build/libs/*.jar
+          path: traderglow_modrinth_project/build/libs/*.jar
