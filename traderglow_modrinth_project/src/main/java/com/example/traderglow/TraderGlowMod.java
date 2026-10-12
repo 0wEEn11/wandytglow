@@ -5,9 +5,9 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientEntityEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,13 +17,18 @@ public class TraderGlowMod implements ClientModInitializer {
 
     private static final Set<Entity> TRADERS = new HashSet<>();
 
+    public static boolean isTrader(Entity entity) {
+        Identifier id = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
+        return id != null && id.getPath().startsWith("wandering_trader");
+    }
+
     @Override
     public void onInitializeClient() {
         ClientEntityEvents.ENTITY_LOAD.register((entity, level) -> {
-            if (entity.getType() == EntityType.WANDERING_TRADER) TRADERS.add(entity);
+            if (isTrader(entity)) TRADERS.add(entity);
         });
         ClientEntityEvents.ENTITY_UNLOAD.register((entity, level) -> {
-            if (entity.getType() == EntityType.WANDERING_TRADER) TRADERS.remove(entity);
+            if (isTrader(entity)) TRADERS.remove(entity);
         });
 
         HudElementRegistry.attachElementBefore(
