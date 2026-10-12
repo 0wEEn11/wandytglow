@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "traderglow",
+  "version": "${version}",
+  "name": "Trader Glow Mod",
+  "description": "Client-side mod that makes Wandering Traders glow and adds a HUD indicator.",
+  "authors": ["AI Developer"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.example.traderglow.TraderGlowMod"]
+  },
+  "mixins": [
+    { "config": "traderglow.mixins.json", "environment": "client" }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
