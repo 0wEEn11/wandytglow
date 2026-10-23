@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "joincoords",
+  "version": "${version}",
+  "name": "JoinCoords",
+  "description": "Broadcasts a player's UUID and X/Z coordinates when they join.",
+  "environment": "server",
+  "entrypoints": {
+    "server": ["com.example.joincoords.JoinCoords"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
