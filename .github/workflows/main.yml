@@ -3,17 +3,17 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: traderglow_modrinth_project
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
-        with: { distribution: temurin, java-version: 25 }
+        with:
+          distribution: temurin
+          java-version: 25
       - uses: gradle/actions/setup-gradle@v4
-        with: { gradle-version: 9.6.1 }
+        with:
+          gradle-version: 9.5.1
       - run: gradle build
       - uses: actions/upload-artifact@v4
         with:
-          name: traderglow-jar
-          path: traderglow_modrinth_project/build/libs/*.jar
+          name: joincoords
+          path: build/libs/joincoords-1.0.0.jar
